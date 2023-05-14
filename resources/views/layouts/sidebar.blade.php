@@ -15,7 +15,7 @@
             </li>
             <li class="sidebar-item {{Route::is('category.create') ? 'active': ''}}">
                 <a class="sidebar-link" href="{{url('/category')}}">
-                    <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Category</span>
+                    <i class="align-middle" data-feather="plus-square"></i> <span class="align-middle">Category</span>
                 </a>
             </li>
         </ul>

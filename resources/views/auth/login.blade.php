@@ -59,7 +59,7 @@
                 processData: false,
                 data: formdata,
                 beforeSend: () => {
-
+                    $("form").find(".error").text("");
                 },
                 success: res => {
                     if (res.status == 'error') {
@@ -67,8 +67,11 @@
                             $("form").find(".error-" + index).text(value);
                         })
                         return
+                    } else if (res.status) {
+                        location.href = "/home";
+                    } else {
+                        $("form").find(".error-username").text(res.unauthenticate);
                     }
-                    location.href = "/home";
                 }
             })
         }

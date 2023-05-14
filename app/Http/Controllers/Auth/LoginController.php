@@ -25,12 +25,12 @@ class LoginController extends Controller
             $data = ["status" => "error", "message" => $validator->errors()];
             return response()->json($data);
         }
-        
+
         try {
             if (Auth::attempt($this->credentials($request->username, $request->password))) {
-                return response()->json(["message" => "Login successfully", "user_id" => Auth::user()->id]);
+                return response()->json(["status" => true, "message" => "Login successfully", "user_id" => Auth::user()->id]);
             } else {
-                return response()->json(["unauthenticate" => "Username Or Password not match"]);
+                return response()->json(["status" => false, "unauthenticate" => "Username Or Password not match"]);
             }
         } catch (\Throwable $th) {
             $data = ["status" => false, "message" => $th->getMessage()];
